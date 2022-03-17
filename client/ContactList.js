@@ -15,6 +15,7 @@ const ContactList = (props) => (
           name={el.name}
           email={el.email}
           phone={el.phone}
+          selectContact={props.selectContact}
         />
       ))}
     </tbody>
