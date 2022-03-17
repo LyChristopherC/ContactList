@@ -1,4 +1,5 @@
 import React from 'react';
+import Favorite from './Favorite';
 
 function singleContact(props) {
   return (
@@ -8,6 +9,10 @@ function singleContact(props) {
         <p>Name: {props.selectedContact.name}</p>
         <p>Email: {props.selectedContact.email}</p>
         <p>Phone: {props.selectedContact.phone}</p>
+        <Favorite
+          selectContact={props.selectContact}
+          contact={props.selectedContact}
+        />
       </div>
     </div>
   );

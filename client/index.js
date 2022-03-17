@@ -17,7 +17,6 @@ class Main extends Component {
   async componentDidMount() {
     try {
       const data = await axios.get('/api/contacts');
-      console.log(data);
       this.setState({ contacts: data.data });
     } catch (error) {
       console.error(error);
@@ -27,7 +26,6 @@ class Main extends Component {
   async selectContact(id) {
     try {
       const data = await axios.get(`/api/contacts/${id}`);
-      console.log(data);
       this.setState({ selectedContact: data.data });
     } catch (error) {
       console.error(error);
@@ -42,7 +40,10 @@ class Main extends Component {
         </div>
         <div id="container">
           {this.state.selectedContact.id ? (
-            <SingleContact selectedContact={this.state.selectedContact} />
+            <SingleContact
+              selectContact={this.selectContact}
+              selectedContact={this.state.selectedContact}
+            />
           ) : (
             <ContactList
               selectContact={this.selectContact}
